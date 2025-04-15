@@ -11,7 +11,14 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         // コライダーをトリガーに設定
-        GetComponent<BoxCollider2D>().isTrigger = true;
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        collider.isTrigger = true;
+        
+        // タグを設定
+        gameObject.tag = "Enemy";
+        
+        // レイヤーを設定
+        gameObject.layer = LayerMask.NameToLayer("Enemy");
     }
 
     void Update()
